@@ -1,0 +1,179 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "$id": "https://raw.githubusercontent.com/Intuitive-Development/schemas/main/json/device.specifications.schema.json",
+    "title": "Device Specifications Schema",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "System Specifications": {
+            "$ref": "#/$defs/system"
+        },
+        "Windows Specifications": {
+            "$ref": "#/$defs/windows"
+        },
+        "Connection Specifications": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/network" }
+        }
+    },
+    "$defs": {
+        "system": {
+            "type": "object",
+            "properties": {
+                "Device name": {
+                    "type":"string",
+                    "description": "The name of the device."
+                },
+                "Processor": {
+                    "type":"string",
+                    "description": "The devices processor."
+                },
+                "Installed RAM":{
+                    "type":"string",
+                    "description": "The amount of usable RAM installed on the device.",
+                    "pattern": "^[0-9]+ \\((MB|GB)\\)$"
+                } ,
+                "Device ID": {
+                    "type":"string",
+                    "description": "The device ID."
+                },
+                "Product ID": {
+                    "type":"string",
+                    "description": "The product ID."
+                },
+                "System type": {
+                    "type":"string",
+                    "description": "The system architecture. i.e. '64-bit', 'x64-based' etc."
+                },
+                "Pen and touch": {
+                    "type":"string",
+                    "description": "The pen and touch configuration of the device."
+                }
+            },
+            "required": ["Device name", "Processor", "Installed RAM", "Device ID", "Product ID", "System type"]
+        },
+        "windows": {
+            "type": "object",
+            "properties": {
+                "Edition": {
+                    "type": "string",
+                    "description": "The edition of Windows installed on the device."
+                },
+                "Version": {
+                    "type": "string",
+                    "description": "The version of Windows installed on the device."
+                },
+                "Installed on": {
+                    "type": "string",
+                    "description": "Short date of when the OS was installed.",
+                    "format":"date-time"
+                },
+                "OS build": {
+                    "type": "string",
+                    "description": "The build number i.e. '19044.2006'"
+                },
+                "Experience": {
+                    "type": "string",
+                    "description": "Added features or variants of the OS installed on the device."
+                }
+            },
+            "required": ["Edition", "Version", "Installed on", "OS build"]
+        },
+        "network": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string",
+                "description": "The connection name."
+              },
+              "Description": {
+                "type": "string",
+                "description": "The connection description."
+              },
+              "Physical address (MAC)": {
+                "type": "string",
+                "description": "The connections MAC address",
+                "pattern": "^.{2}-.{2}-.{2}-.{2}-.{2}-.{2}$"
+              },
+              "Status": {
+                "type": "string",
+                "description": "The connection status, either 'Operational' or 'Not operation'.",
+                "pattern": "^(Operational|Not operational)$"
+              },
+              "Maximum transmission unit": {
+                "type": "integer"
+              },
+              "Link speed (Receive/Transmit)": {
+                "type": "string",
+                "pattern": "^[0-9]+/[0-9]+ \\((Mbps|Gbps)\\)$"
+              },
+              "DHCP enabled": {
+                "type": "boolean",
+                "description": "True/Fals"
+              },
+              "DHCP servers": {
+                "type": "string",
+                "description": "The first IPv4 address the server starts from.",
+                "format":"ipv4"
+              },
+              "DHCP lease obtained": {
+                "type": "string",
+                "description": "Long date of when the lease was last obtained.",
+                "format": "date-time"
+              },
+              "DHCP lease expires": {
+                "type": "string",
+                "description": "Long date of when the current lease expires.",
+                "format": "date-time"
+              },
+              "IPv4 address": {
+                "type": "string",
+                "description": "The current IPv4 address.",
+                "format": "ipv4"
+              },
+              "IPv6 address": {
+                "type": "string",
+                "description": "The current IPv6 address.",
+                "format": "ipv6"
+              },
+              "Default gateway": {
+                "type": "string",
+                "description": "The current default gateway (IPv4) address.",
+                "format": "ipv4"
+              },
+              "DNS servers": {
+                "type": "array",
+                "description": "The primary, and secondary DNS servers.",
+                "items": {
+                  "type":"string"
+                }
+              },
+              "DNS domain name": {
+                "type": "string",
+                "description": "The domain name"
+              },
+              "DNS connection suffix": {
+                "type": "string"
+              },
+              "DNS search suffix list": {
+                "type": "string"
+              },
+              "Network name": {
+                "type": "string",
+                "description": "The name or SSID of the current network."
+              },
+              "Network category": {
+                "type": "string",
+                "description": "Either 'Public' or 'Private'.",
+                "pattern": "(Public|Private)"
+              },
+              "Connectivity (IPv4/IPv6)": {
+                "type": "string",
+                "description": "Either 'Connected' or 'Disconnected'.",
+                "pattern": "^(Connected|Disconnected).*$"
+              }
+            },
+            "required":["Name", "Description", "Physical address (MAC)", "Status", "Maximum transmission unit", "IPv4 address", "IPv6 address", "DNS servers", "Connectivity (IPv4/IPv6)"]
+        }
+    }
+}
