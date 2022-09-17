@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
-    "$id": "http://idevgroup.net/schemas/device.connection.schema.json",
+    "$id": "https://github.com/Intuitive-Development/schemas/blob/main/json/device.connection.schema.json",
     "title": "Device connection properties",
     "description": "Hardware and connection properties for a network connection.",
     "type": "object",
