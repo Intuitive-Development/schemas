@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
-    "$id": "https://github.com/Intuitive-Development/schemas/blob/main/json/device.windows.specifications.schema.json",
+    "$id": "https://raw.githubusercontent.com/Intuitive-Development/schemas/main/json/device.windows.specifications.schema.json",
     "title": "Device Windows Specifications Schema",
     "description": "Windows OS properties.",
     "type": "object",
