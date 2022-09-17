@@ -1,0 +1,100 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "$id": "https://github.com/Intuitive-Development/schemas/blob/main/json/device.network.connection.schema.json",
+    "title": "Device Network Connection Properties Schema",
+    "description": "Hardware and connection properties for a network connection.",
+    "type": "object",
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "The connection name."
+      },
+      "Description": {
+        "type": "string",
+        "description": "The connection description."
+      },
+      "Physical address (MAC)": {
+        "type": "string",
+        "description": "The connections MAC address",
+        "pattern": "^.{2}-.{2}-.{2}-.{2}-.{2}-.{2}$"
+      },
+      "Status": {
+        "type": "string",
+        "description": "The connection status, either 'Operational' or 'Not operation'.",
+        "pattern": "^(Operational|Not operational)$"
+      },
+      "Maximum transmission unit": {
+        "type": "integer"
+      },
+      "Link speed (Receive/Transmit)": {
+        "type": "string",
+        "pattern": "^[0-9]+/[0-9]+ \\((Mbps|Gbps)\\)$"
+      },
+      "DHCP enabled": {
+        "type": "boolean",
+        "description": "True/Fals"
+      },
+      "DHCP servers": {
+        "type": "string",
+        "description": "The first IPv4 address the server starts from.",
+        "format":"ipv4"
+      },
+      "DHCP lease obtained": {
+        "type": "string",
+        "description": "Long date of when the lease was last obtained.",
+        "format": "date-time"
+      },
+      "DHCP lease expires": {
+        "type": "string",
+        "description": "Long date of when the current lease expires.",
+        "format": "date-time"
+      },
+      "IPv4 address": {
+        "type": "string",
+        "description": "The current IPv4 address.",
+        "format": "ipv4"
+      },
+      "IPv6 address": {
+        "type": "string",
+        "description": "The current IPv6 address.",
+        "format": "ipv6"
+      },
+      "Default gateway": {
+        "type": "string",
+        "description": "The current default gateway (IPv4) address.",
+        "format": "ipv4"
+      },
+      "DNS servers": {
+        "type": "array",
+        "description": "The primary, and secondary DNS servers.",
+        "items": {
+          "type":"string"
+        }
+      },
+      "DNS domain name": {
+        "type": "string",
+        "description": "The domain name"
+      },
+      "DNS connection suffix": {
+        "type": "string"
+      },
+      "DNS search suffix list": {
+        "type": "string"
+      },
+      "Network name": {
+        "type": "string",
+        "description": "The name or SSID of the current network."
+      },
+      "Network category": {
+        "type": "string",
+        "description": "Either 'Public' or 'Private'.",
+        "pattern": "(Public|Private)"
+      },
+      "Connectivity (IPv4/IPv6)": {
+        "type": "string",
+        "description": "Either 'Connected' or 'Disconnected'.",
+        "pattern": "^(Connected|Disconnected).*$"
+      }
+    },
+    "required":["Name", "Description", "Physical address (MAC)", "Status", "Maximum transmission unit", "IPv4 address", "IPv6 address", "DNS servers", "Connectivity (IPv4/IPv6)"]
+  }

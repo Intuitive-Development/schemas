@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "$id": "https://github.com/Intuitive-Development/schemas/blob/main/json/device.system.specifications.schema.json",
+    "title": "Device System Specifications Schema",
+    "description": "System properties.",
+    "type": "object",
+    "properties": {
+        "Device name": {
+            "type":"string",
+            "description": "The name of the device."
+        },
+        "Processor": {
+            "type":"string",
+            "description": "The devices processor."
+        },
+        "Installed RAM":{
+            "type":"string",
+            "description": "The amount of usable RAM installed on the device.",
+            "pattern": "^[0-9]+ \\((MB|GB)\\)$"
+        } ,
+        "Device ID": {
+            "type":"string",
+            "description": "The device ID."
+        },
+        "Product ID": {
+            "type":"string",
+            "description": "The product ID."
+        },
+        "System type": {
+            "type":"string",
+            "description": "The system architecture. i.e. '64-bit', 'x64-based' etc."
+        },
+        "Pen and touch": {
+            "type":"string",
+            "description": "The pen and touch configuration of the device."
+        }
+    },
+    "required": ["Device name", "Processor", "Installed RAM", "Device ID", "Product ID", "System type"]
+}
