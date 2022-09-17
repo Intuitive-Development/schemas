@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "$id": "https://raw.githubusercontent.com/Intuitive-Development/schemas/main/json/device.windows.specifications.schema.json",
+    "title": "Device Windows Specifications Schema",
+    "description": "Windows OS properties.",
+    "type": "object",
+    "properties": {
+        "Edition": {
+            "type": "string",
+            "description": "The edition of Windows installed on the device."
+        },
+        "Version": {
+            "type": "string",
+            "description": "The version of Windows installed on the device."
+        },
+        "Installed on": {
+            "type": "string",
+            "description": "Short date of when the OS was installed.",
+            "format":"date-time"
+        },
+        "OS build": {
+            "type": "string",
+            "description": "The build number i.e. '19044.2006'"
+        },
+        "Experience": {
+            "type": "string",
+            "description": "Added features or variants of the OS installed on the device."
+        }
+    },
+    "required": ["Edition", "Version", "Installed on", "OS build"]
+}
